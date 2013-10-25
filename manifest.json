@@ -1,0 +1,14 @@
+{
+    "description": "Used in integration tests of Online Accounts",
+    "framework": "ubuntu-sdk-13.10",
+    "hooks": {
+        "account-tester": {
+            "apparmor": "account-tester.json",
+            "desktop": "account-tester.desktop"
+        }
+    },
+    "maintainer": "Alberto Mardegan <alberto.mardegan@canonical.com>",
+    "name": "it.mardy.account-tester",
+    "title": "account-tester",
+    "version": "0.1"
+}
