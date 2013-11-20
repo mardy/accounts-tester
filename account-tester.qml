@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import Ubuntu.Components 0.1
 import Ubuntu.OnlineAccounts 0.1
+import Ubuntu.OnlineAccounts.Client 0.1
 import "components"
 
 /*!
@@ -12,7 +13,7 @@ MainView {
     objectName: "mainView"
     
     // Note! applicationName needs to match the "name" field of the click manifest
-    applicationName: "com.ubuntu.developer.mardy.account-tester"
+    applicationName: "it.mardy.account-tester"
     
     /* 
      This property enables the application to change orientation 
@@ -23,6 +24,12 @@ MainView {
     width: units.gu(100)
     height: units.gu(75)
     
+    Component.onCompleted: {
+        if (1 || args.values.access) {
+            setup.exec()
+        }
+    }
+
     Page {
         title: i18n.tr("Test account access")
         
@@ -53,9 +60,7 @@ MainView {
 
                     text: i18n.tr("Authenticate %1").arg(displayName)
 
-                    onClicked: {
-                        accts.authenticate(null)
-                    }
+                    onClicked: accts.authenticate(null)
                 }
             }
             header: Label {
@@ -67,9 +72,24 @@ MainView {
         }
     }
 
+    Arguments {
+        id: args
+
+        Argument {
+            name: "access"
+            required: false
+        }
+    }
+
     AccountServiceModel {
         id: accountsModel
         includeDisabled: true
         serviceType: "test-photos"
+    }
+
+    Setup {
+        id: setup
+        providerId: "test-login"
+        applicationId: "it.mardy.account-tester_account-tester_0.1"
     }
 }

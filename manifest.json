@@ -3,6 +3,7 @@
     "framework": "ubuntu-sdk-13.10",
     "hooks": {
         "account-tester": {
+            "account-application": "account-tester.application",
             "apparmor": "account-tester.json",
             "desktop": "account-tester.desktop"
         }
