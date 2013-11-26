@@ -24,19 +24,18 @@ MainView {
     width: units.gu(100)
     height: units.gu(75)
     
-    Component.onCompleted: {
-        if (1 || args.values.access) {
-            setup.exec()
-        }
-    }
-
     Page {
         title: i18n.tr("Test account access")
-        
+
         ListView {
             id: accountsList
             spacing: units.gu(1)
-            anchors.fill: parent
+            anchors {
+                top: parent.top
+                left: parent.left
+                right: parent.right
+                bottom: authorizeBtn.top
+            }
             model: accountsModel
             delegate: Rectangle {
                 id: wrapper
@@ -70,14 +69,16 @@ MainView {
                 text: "Result"
             }
         }
-    }
 
-    Arguments {
-        id: args
-
-        Argument {
-            name: "access"
-            required: false
+        Button {
+            id: authorizeBtn
+            anchors {
+                left: parent.left
+                right: parent.right
+                bottom: parent.bottom
+            }
+            text: "Request access"
+            onClicked: setup.exec()
         }
     }
 
