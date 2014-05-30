@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=account-tester
 Comment=My project description
-Exec=/usr/bin/qmlscene $@ /usr/share/account-tester/account-tester.qml
+Exec=qmlscene $@ account-tester.qml
 Icon=qmlscene
 Terminal=false
 Type=Application

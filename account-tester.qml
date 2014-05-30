@@ -2,7 +2,6 @@ import QtQuick 2.0
 import Ubuntu.Components 0.1
 import Ubuntu.OnlineAccounts 0.1
 import Ubuntu.OnlineAccounts.Client 0.1
-import "components"
 
 /*!
     \brief MainView with a Label and Button elements.
@@ -91,6 +90,6 @@ MainView {
     Setup {
         id: setup
         providerId: "test-login"
-        applicationId: "it.mardy.account-tester_account-tester_0.1"
+        applicationId: "it.mardy.account-tester_account-tester"
     }
 }
