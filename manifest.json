@@ -1,6 +1,6 @@
 {
     "description": "Used in integration tests of Online Accounts",
-    "framework": "ubuntu-sdk-13.10",
+    "framework": "ubuntu-sdk-14.04",
     "hooks": {
         "account-tester": {
             "account-application": "account-tester.application",
@@ -11,5 +11,5 @@
     "maintainer": "Alberto Mardegan <alberto.mardegan@canonical.com>",
     "name": "it.mardy.account-tester",
     "title": "account-tester",
-    "version": "0.2"
+    "version": "0.3"
 }
