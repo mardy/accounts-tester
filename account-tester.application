@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<application id="account-tester">
+<application>
   <description>Account Tester</description>
-	<!-- <desktop-entry>shotwell.desktop</desktop-entry> -->
 
   <service-types>
-    <service-type id="test-photos">
-      <description>Publish your pictures to Picasa</description>
+    <service-type id="account-tester-type">
+      <description>Do something with your Account Tester account</description>
     </service-type>
   </service-types>
 

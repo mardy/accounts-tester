@@ -65,7 +65,7 @@ MainView {
                 id: resultLabel
                 width: accountsList.width
                 height: units.gu(5)
-                text: "Result"
+                text: i18n.tr("Result")
             }
         }
 
@@ -76,7 +76,7 @@ MainView {
                 right: parent.right
                 bottom: parent.bottom
             }
-            text: "Request access"
+            text: i18n.tr("Request access")
             onClicked: setup.exec()
         }
     }
@@ -84,12 +84,12 @@ MainView {
     AccountServiceModel {
         id: accountsModel
         includeDisabled: true
-        serviceType: "test-photos"
+        serviceType: "account-tester-type"
     }
 
     Setup {
         id: setup
-        providerId: "test-login"
+        providerId: "it.mardy.account-tester_plugin"
         applicationId: "it.mardy.account-tester_account-tester"
     }
 }

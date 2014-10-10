@@ -1,15 +1,20 @@
 {
     "description": "Used in integration tests of Online Accounts",
-    "framework": "ubuntu-sdk-14.04",
+    "framework": "ubuntu-sdk-14.10-dev2",
     "hooks": {
         "account-tester": {
             "account-application": "account-tester.application",
+            "account-service": "account-tester.service",
             "apparmor": "account-tester.json",
             "desktop": "account-tester.desktop"
+        },
+        "plugin": {
+            "account-provider": "plugin/it.mardy.account-tester_plugin.provider",
+            "account-qml-plugin": "plugin/qml"
         }
     },
     "maintainer": "Alberto Mardegan <alberto.mardegan@canonical.com>",
     "name": "it.mardy.account-tester",
     "title": "account-tester",
-    "version": "0.3"
+    "version": "0.4"
 }
