@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import Ubuntu.Components 0.1
+import Ubuntu.Components.ListItems 0.1 as ListItem
 import Ubuntu.OnlineAccounts 0.1
 import Ubuntu.OnlineAccounts.Client 0.1
 
@@ -26,11 +27,19 @@ MainView {
     Page {
         title: i18n.tr("Test account access")
 
+        ListItem.Standard {
+            id: requestPasswordPolicyField
+            text: i18n.tr("Request password from user")
+            control: CheckBox {
+                id: requestPasswordPolicyBtn
+            }
+        }
+
         ListView {
             id: accountsList
             spacing: units.gu(1)
             anchors {
-                top: parent.top
+                top: requestPasswordPolicyField.bottom
                 left: parent.left
                 right: parent.right
                 bottom: authorizeBtn.top
@@ -58,7 +67,14 @@ MainView {
 
                     text: i18n.tr("Authenticate %1").arg(displayName)
 
-                    onClicked: accts.authenticate(null)
+                    onClicked: {
+                        var params = {}
+                        if (requestPasswordPolicyBtn.checked) {
+                            // 1 == Always request password from user
+                            params["UiPolicy"] = 1
+                        }
+                        accts.authenticate(params)
+                    }
                 }
             }
             header: Label {
