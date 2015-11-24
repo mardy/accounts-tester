@@ -103,9 +103,36 @@ MainView {
         serviceType: "account-tester-type"
     }
 
+    Component {
+        id: accountServiceComponent
+        AccountService {
+        }
+    }
     Setup {
         id: setup
         providerId: "it.mardy.account-tester_plugin"
         applicationId: "it.mardy.account-tester_account-tester"
+        onFinished: {
+            console.log("Authenticating account " + reply.accountId)
+            var i = 0;
+            for (i = 0; i < accountsModel.count; i++) {
+                if (accountsModel.get(i, "accountId") === reply.accountId) {
+                    console.log("Found account");
+                    break;
+                }
+            }
+
+            var acs = accountServiceComponent.createObject(setup, {
+                "objectHandle": accountsModel.get(i, "accountServiceHandle")
+            })
+
+            var params = {}
+            if (requestPasswordPolicyBtn.checked) {
+                // 1 == Always request password from user
+                params["UiPolicy"] = 1
+            }
+            console.log("Authenticating account " + acs)
+            acs.authenticate(params)
+        }
     }
 }
