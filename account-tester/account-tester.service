@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<service>
-  <type>account-tester-type</type>
-  <name>Account Tester</name>
-  <provider>it.mardy.account-tester_plugin</provider>
-</service>

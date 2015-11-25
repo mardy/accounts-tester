@@ -1,10 +1,9 @@
 {
     "description": "Used in integration tests of Online Accounts",
-    "framework": "ubuntu-sdk-14.10",
+    "framework": "ubuntu-sdk-15.04.1",
     "hooks": {
         "account-tester": {
-            "account-application": "account-tester/account-tester.application",
-            "account-service": "account-tester/account-tester.service",
+            "accounts": "account-tester/account-tester.accounts",
             "apparmor": "account-tester/account-tester.json",
             "desktop": "account-tester/account-tester.desktop"
         },
