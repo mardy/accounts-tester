@@ -1,8 +1,8 @@
 [Desktop Entry]
 Name=Account Tester
 Comment=My project description
-Exec=qmlscene $@ account-tester.qml
-Icon=account-tester.svg
+Exec=qmlscene $@ ./account-tester/account-tester.qml
+Icon=./account-tester/account-tester.svg
 Terminal=false
 Type=Application
 X-Ubuntu-Touch=true

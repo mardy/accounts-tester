@@ -1,12 +1,12 @@
 {
     "description": "Used in integration tests of Online Accounts",
-    "framework": "ubuntu-sdk-14.10-dev2",
+    "framework": "ubuntu-sdk-14.10",
     "hooks": {
         "account-tester": {
-            "account-application": "account-tester.application",
-            "account-service": "account-tester.service",
-            "apparmor": "account-tester.json",
-            "desktop": "account-tester.desktop"
+            "account-application": "account-tester/account-tester.application",
+            "account-service": "account-tester/account-tester.service",
+            "apparmor": "account-tester/account-tester.json",
+            "desktop": "account-tester/account-tester.desktop"
         },
         "plugin": {
             "account-provider": "plugin/it.mardy.account-tester_plugin.provider",
