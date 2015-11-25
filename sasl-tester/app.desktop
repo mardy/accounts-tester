@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Account SASL Tester
+Exec=qmlscene $@ ./sasl-tester/app.qml
+Icon=./sasl-tester/app.svg
+Terminal=false
+Type=Application
+X-Ubuntu-Touch=true
