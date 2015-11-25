@@ -4,7 +4,7 @@
     "hooks": {
         "account-tester": {
             "accounts": "account-tester/account-tester.accounts",
-            "apparmor": "account-tester/account-tester.json",
+            "apparmor": "account-tester/account-tester.apparmor",
             "desktop": "account-tester/account-tester.desktop"
         },
         "plugin": {
