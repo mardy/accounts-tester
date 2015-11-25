@@ -100,12 +100,12 @@ MainView {
     AccountServiceModel {
         id: accountsModel
         includeDisabled: true
-        serviceType: "account-tester-type"
+        applicationId: "it.mardy.account-tester_account-tester"
     }
 
     Setup {
         id: setup
-        providerId: "it.mardy.account-tester_plugin"
-        applicationId: "it.mardy.account-tester_account-tester"
+        providerId: "it.mardy.account-tester_plugin_tester"
+        applicationId: accountsModel.applicationId
     }
 }
