@@ -8,8 +8,7 @@
             "desktop": "account-tester/account-tester.desktop"
         },
         "plugin": {
-            "account-provider": "plugin/it.mardy.account-tester_plugin.provider",
-            "account-qml-plugin": "plugin/qml"
+            "accounts": "plugin/plugin.accounts"
         }
     },
     "maintainer": "Alberto Mardegan <alberto.mardegan@canonical.com>",

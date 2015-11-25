@@ -1,7 +1,7 @@
 {
   "services": [
     {
-      "provider": "it.mardy.account-tester_plugin",
+      "provider": "it.mardy.account-tester_plugin_tester",
       "description": "Do something with your Account Tester account"
     }
   ]
