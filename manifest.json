@@ -7,6 +7,11 @@
             "apparmor": "account-tester/account-tester.apparmor",
             "desktop": "account-tester/account-tester.desktop"
         },
+        "sasl-tester": {
+            "accounts": "sasl-tester/app.accounts",
+            "apparmor": "sasl-tester/app.apparmor",
+            "desktop": "sasl-tester/app.desktop"
+        },
         "plugin": {
             "accounts": "plugin/plugin.accounts"
         }
