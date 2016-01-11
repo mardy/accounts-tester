@@ -1,14 +1,11 @@
 {
-  "plugins": [
-    {
-      "provider": "tester",
-      "name": "Account Tester",
-      "icon": "account-tester-plugin.svg",
-      "qml": "plugin/qml",
-      "auth": {
-        "password/password": {
-        }
+  "plugin": {
+    "name": "Account Tester",
+    "icon": "account-tester-plugin.svg",
+    "qml": "plugin/qml",
+    "auth": {
+      "password/password": {
       }
     }
-  ]
+  }
 }
