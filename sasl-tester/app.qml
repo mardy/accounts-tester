@@ -109,7 +109,7 @@ MainView {
 
     Setup {
         id: setup
-        providerId: "it.mardy.account-tester_plugin_tester"
+        providerId: "it.mardy.account-tester_plugin"
         applicationId: accountsModel.applicationId
     }
 }
