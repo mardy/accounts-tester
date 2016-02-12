@@ -1,8 +1,7 @@
 import QtQuick 2.0
 import Ubuntu.Components 0.1
 import Ubuntu.Components.ListItems 0.1 as ListItem
-import Ubuntu.OnlineAccounts 0.1
-import Ubuntu.OnlineAccounts.Client 0.1
+import Ubuntu.OnlineAccounts 2.0
 
 /*!
     \brief MainView with a Label and Button elements.
@@ -30,6 +29,7 @@ MainView {
         ListItem.Standard {
             id: requestPasswordPolicyField
             text: i18n.tr("Request password from user")
+            visible: false // enable when https://bugs.launchpad.net/bugs/1544863 gets fixed
             control: CheckBox {
                 id: requestPasswordPolicyBtn
             }
@@ -49,19 +49,17 @@ MainView {
                 id: wrapper
                 width: accountsList.width
                 height: units.gu(10)
-                color: accts.enabled ? "green" : "red"
+                color: "green"
 
-                AccountService {
-                    id: accts
-                    objectHandle: accountServiceHandle
-                    onAuthenticated: {
-                        console.log("Got reply: " + JSON.stringify(reply))
-                        console.log("Response " + reply.Response)
-                        accountsList.headerItem.text = reply.Response
-                    }
-                    onAuthenticationError: {
-                        console.log("Authentication failed, code " + error.code)
-                        accountsList.headerItem.text = "Error " + error.code
+                Connections {
+                    target: model.account
+                    onAuthenticationReply: if ("errorCode" in authenticationData) {
+                        console.warn("Authentication error: " + authenticationData.errorText + " (" + authenticationData.errorCode + ")")
+                        accountsList.headerItem.text = "Error " + authenticationData.errorCode + ": " + authenticationData.errorText
+                    } else {
+                        console.log("Got authenticationData: " + JSON.stringify(authenticationData))
+                        console.log("Response " + authenticationData.Response)
+                        accountsList.headerItem.text = authenticationData.Response
                     }
                 }
 
@@ -75,10 +73,9 @@ MainView {
                         var params = {}
                         params["MechList"] = "PLAIN"
                         if (requestPasswordPolicyBtn.checked) {
-                            // 1 == Always request password from user
-                            params["UiPolicy"] = 1
+                            params["invalidateCachedReply"] = true
                         }
-                        accts.authenticate(params)
+                        model.account.authenticate(params)
                     }
                 }
             }
@@ -98,18 +95,13 @@ MainView {
                 bottom: parent.bottom
             }
             text: i18n.tr("Request access")
-            onClicked: setup.exec()
+            visible: accountsModel.ready
+            onClicked: accountsModel.requestAccess("it.mardy.account-tester_sasl-tester_it.mardy.account-tester_plugin", {})
         }
     }
 
-    AccountServiceModel {
+    AccountModel {
         id: accountsModel
         applicationId: "it.mardy.account-tester_sasl-tester"
-    }
-
-    Setup {
-        id: setup
-        providerId: "it.mardy.account-tester_plugin"
-        applicationId: accountsModel.applicationId
     }
 }
