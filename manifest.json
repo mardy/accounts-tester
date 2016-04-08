@@ -12,6 +12,11 @@
             "apparmor": "sasl-tester/app.apparmor",
             "desktop": "sasl-tester/app.desktop"
         },
+        "vk-tester": {
+            "accounts": "vk-tester/app.accounts",
+            "apparmor": "vk-tester/app.apparmor",
+            "desktop": "vk-tester/app.desktop"
+        },
         "plugin": {
             "accounts": "plugin/plugin.accounts"
         }
@@ -19,5 +24,5 @@
     "maintainer": "Alberto Mardegan <alberto.mardegan@canonical.com>",
     "name": "it.mardy.account-tester",
     "title": "account-tester",
-    "version": "0.9"
+    "version": "0.10"
 }

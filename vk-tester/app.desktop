@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=VK.com Account Tester
+Exec=qmlscene $@ ./vk-tester/app.qml
+Icon=./vk-tester/app.svg
+Terminal=false
+Type=Application
+X-Ubuntu-Touch=true
