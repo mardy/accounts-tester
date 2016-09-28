@@ -1,0 +1,12 @@
+{
+  "services": [
+    {
+      "provider": "owncloud",
+      "description": "Do something with your Owncloud account",
+      "auth": {
+        "password/password": {
+        }
+      }
+    }
+  ]
+}
