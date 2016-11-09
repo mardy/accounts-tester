@@ -12,10 +12,10 @@
             "apparmor": "owncloud-tester/app.apparmor",
             "desktop": "owncloud-tester/app.desktop"
         },
-        "sasl-tester": {
-            "accounts": "sasl-tester/app.accounts",
-            "apparmor": "sasl-tester/app.apparmor",
-            "desktop": "sasl-tester/app.desktop"
+        "provider-tester": {
+            "accounts": "provider-tester/app.accounts",
+            "apparmor": "provider-tester/app.apparmor",
+            "desktop": "provider-tester/app.desktop"
         },
         "vk-tester": {
             "accounts": "vk-tester/app.accounts",
@@ -29,5 +29,5 @@
     "maintainer": "Alberto Mardegan <alberto.mardegan@canonical.com>",
     "name": "it.mardy.account-tester",
     "title": "account-tester",
-    "version": "0.11"
+    "version": "0.12"
 }

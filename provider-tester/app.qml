@@ -1,6 +1,6 @@
 import QtQuick 2.0
-import Ubuntu.Components 0.1
-import Ubuntu.Components.ListItems 0.1 as ListItem
+import Ubuntu.Components 1.3
+import Ubuntu.Components.ListItems 1.3 as ListItem
 import Ubuntu.OnlineAccounts 2.0
 
 /*!
@@ -22,9 +22,19 @@ MainView {
     
     width: units.gu(100)
     height: units.gu(75)
-    
+ 
+    PageStack {
+        id: pageStack
+        Component.onCompleted: push(accountListPage)
+    }
+
     Page {
-        title: i18n.tr("Test SASL authentication")
+        id: accountListPage
+
+        header: PageHeader {
+            title: i18n.tr("Test account creation")
+            flickable: accountsList
+        }
 
         ListItem.Standard {
             id: requestPasswordPolicyField
@@ -58,8 +68,18 @@ MainView {
                         accountsList.headerItem.text = "Error " + authenticationData.errorCode + ": " + authenticationData.errorText
                     } else {
                         console.log("Got authenticationData: " + JSON.stringify(authenticationData))
-                        console.log("Response " + authenticationData.Response)
-                        accountsList.headerItem.text = authenticationData.Response
+                        var response = ""
+                        switch (model.authenticationMethod) {
+                            case Account.AuthenticationMethodSasl:
+                                response = authenticationData.Response; break;
+                            case Account.AuthenticationMethodPassword:
+                                response = authenticationData.Password; break;
+                            case Account.AuthenticationMethodOAuth1:
+                            case Account.AuthenticationMethodOAuth2:
+                                response = authenticationData.AccessToken; break;
+                        }
+                        console.log("Response " + response)
+                        accountsList.headerItem.text = response
                     }
                 }
 
@@ -68,12 +88,15 @@ MainView {
                     anchors.margins: units.gu(2)
 
                     text: i18n.tr("Authenticate %1").arg(displayName)
+                    iconSource: model.account.service.iconSource
 
                     onClicked: {
                         var params = {}
-                        params["MechList"] = "PLAIN"
-                        if (requestPasswordPolicyBtn.checked) {
-                            params["invalidateCachedReply"] = true
+                        if (model.authenticationMethod == Account.AuthenticationMethodSasl) {
+                            params["MechList"] = "PLAIN"
+                            if (requestPasswordPolicyBtn.checked) {
+                                params["invalidateCachedReply"] = true
+                            }
                         }
                         model.account.authenticate(params)
                     }
@@ -94,14 +117,37 @@ MainView {
                 right: parent.right
                 bottom: parent.bottom
             }
-            text: i18n.tr("Request access")
+            text: i18n.tr("Create new account")
             visible: accountsModel.ready
-            onClicked: accountsModel.requestAccess("it.mardy.account-tester_sasl-tester_it.mardy.account-tester_plugin", {})
+            onClicked: pageStack.push(providerListPage)
+        }
+    }
+
+    Component {
+        id: providerListPage
+        Page {
+            header: PageHeader {
+                title: i18n.tr("Choose provider")
+                flickable: providersList
+            }
+
+            ListView {
+                id: providersList
+                spacing: units.gu(1)
+                anchors.fill: parent
+                model: accountsModel.serviceList
+                delegate: ListItem.Standard {
+                    text: modelData.displayName
+                    iconSource: modelData.iconSource
+                    onTriggered: accountsModel.requestAccess(modelData.serviceId, {})
+                }
+            }
         }
     }
 
     AccountModel {
         id: accountsModel
-        applicationId: "it.mardy.account-tester_sasl-tester"
+        applicationId: "it.mardy.account-tester_provider-tester"
+        onCountChanged: if (pageStack.depth > 1) pageStack.pop()
     }
 }

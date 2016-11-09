@@ -67,6 +67,7 @@ MainView {
                     anchors.margins: units.gu(2)
 
                     text: i18n.tr("Authenticate %1").arg(displayName)
+                    iconSource: model.account.service.iconSource
 
                     onClicked: {
                         var params = {}

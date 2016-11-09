@@ -1,0 +1,24 @@
+{
+  "services": [
+    {
+      "provider": "it.mardy.account-tester_plugin",
+      "description": "Do something with your Account Tester account",
+      "auth": {
+        "sasl/*": {
+        }
+      }
+    },
+    {
+      "provider": "owncloud",
+      "description": "Do something with your Owncloud account",
+      "auth": {
+        "password/password": {
+        }
+      }
+    },
+    {
+      "provider": "vk",
+      "description": "Test the VK.com account"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Account provider Tester
+Exec=qmlscene $@ ./provider-tester/app.qml
+Icon=./provider-tester/app.svg
+Terminal=false
+Type=Application
+X-Ubuntu-Touch=true
