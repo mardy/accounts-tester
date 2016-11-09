@@ -7,20 +7,10 @@
             "apparmor": "account-tester/account-tester.apparmor",
             "desktop": "account-tester/account-tester.desktop"
         },
-        "owncloud-tester": {
-            "accounts": "owncloud-tester/app.accounts",
-            "apparmor": "owncloud-tester/app.apparmor",
-            "desktop": "owncloud-tester/app.desktop"
-        },
         "provider-tester": {
             "accounts": "provider-tester/app.accounts",
             "apparmor": "provider-tester/app.apparmor",
             "desktop": "provider-tester/app.desktop"
-        },
-        "vk-tester": {
-            "accounts": "vk-tester/app.accounts",
-            "apparmor": "vk-tester/app.apparmor",
-            "desktop": "vk-tester/app.desktop"
         },
         "plugin": {
             "accounts": "plugin/plugin.accounts"

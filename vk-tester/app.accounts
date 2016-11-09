@@ -1,8 +1,0 @@
-{
-  "services": [
-    {
-      "provider": "vk",
-      "description": "Test the VK.com account"
-    }
-  ]
-}

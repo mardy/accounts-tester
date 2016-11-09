@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=Owncloud auth Tester
-Exec=qmlscene $@ ./owncloud-tester/app.qml
-Icon=./owncloud-tester/app.svg
-Terminal=false
-Type=Application
-X-Ubuntu-Touch=true
