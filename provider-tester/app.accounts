@@ -9,6 +9,14 @@
       }
     },
     {
+      "provider": "nextcloud",
+      "description": "Do something with your Nextcloud account",
+      "auth": {
+        "password/password": {
+        }
+      }
+    },
+    {
       "provider": "owncloud",
       "description": "Do something with your Owncloud account",
       "auth": {
