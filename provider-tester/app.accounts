@@ -9,6 +9,10 @@
       }
     },
     {
+      "provider": "microsoft",
+      "description": "Do something with your Microsoft account"
+    },
+    {
       "provider": "nextcloud",
       "description": "Do something with your Nextcloud account",
       "auth": {
