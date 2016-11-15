@@ -9,6 +9,10 @@
       }
     },
     {
+      "provider": "mcloud",
+      "description": "Do something with your mcloud account"
+    },
+    {
       "provider": "microsoft",
       "description": "Do something with your Microsoft account"
     },
