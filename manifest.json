@@ -13,7 +13,8 @@
             "desktop": "provider-tester/app.desktop"
         },
         "plugin": {
-            "accounts": "plugin/plugin.accounts"
+            "accounts": "plugin/plugin.accounts",
+            "apparmor": "plugin/plugin.apparmor"
         }
     },
     "maintainer": "Alberto Mardegan <alberto.mardegan@canonical.com>",
