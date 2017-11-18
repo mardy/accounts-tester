@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Account Tester
-Comment=My project description
+Comment=Test functionality of Online Accounts
 Exec=qmlscene $@ ./account-tester/account-tester.qml
 Icon=./account-tester/account-tester.svg
 Terminal=false
